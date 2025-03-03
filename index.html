@@ -86,8 +86,9 @@
         <select id="dashboardSelect" onchange="checkPassword()">
             <option value="" selected disabled>Select a Dashboard</option>
             <option value="dashboard1">2024 QA Audit (Protected)</option>
-            <option value="dashboard2">Mission Lifeline - Cardiac KPIs</option>
-            <option value="dashboard3">Mission Lifeline - Neuro KPIs</option>
+            <option value="dashboard2">2025 QA Audit (Protected)</option>
+            <option value="dashboard3">Mission Lifeline - Cardiac YTD</option>
+            <option value="dashboard4">Mission Lifeline - Neuro YTD</option>
         </select>
     </div>
     
@@ -103,13 +104,16 @@
         var urls = {
             "dashboard1": "https://app.powerbigov.us/view?r=eyJrIjoiMzc5MzI4YWUtMmRhYS00MzhjLTk1ZjYtY2FkZTkyMjc3MWMxIiwidCI6ImFkMWM0MmQ0LThjZWUtNGUwNS04YTNiLTA3ZWQ2OTY4ZmI2YyJ9",
 
-            "dashboard2": "https://app.powerbigov.us/view?r=eyJrIjoiZjQ4MDZjOWMtMTc5MS00MjJjLWI3MzYtYjFmNGE3NGMyZWRmIiwidCI6ImFkMWM0MmQ0LThjZWUtNGUwNS04YTNiLTA3ZWQ2OTY4ZmI2YyJ9",
+            "dashboard2": "https://app.powerbigov.us/view?r=eyJrIjoiMzc5MzI4YWUtMmRhYS00MzhjLTk1ZjYtY2FkZTkyMjc3MWMxIiwidCI6ImFkMWM0MmQ0LThjZWUtNGUwNS04YTNiLTA3ZWQ2OTY4ZmI2YyJ9",
 
-            "dashboard3": "https://app.powerbigov.us/view?r=eyJrIjoiN2M2YjVjNjEtM2ViNi00NmVjLTk2NTctOTNlODM0NDY0ZjAwIiwidCI6ImFkMWM0MmQ0LThjZWUtNGUwNS04YTNiLTA3ZWQ2OTY4ZmI2YyJ9"
+            "dashboard3": "https://app.powerbigov.us/view?r=eyJrIjoiZjQ4MDZjOWMtMTc5MS00MjJjLWI3MzYtYjFmNGE3NGMyZWRmIiwidCI6ImFkMWM0MmQ0LThjZWUtNGUwNS04YTNiLTA3ZWQ2OTY4ZmI2YyJ9",
+
+            "dashboard4": "https://app.powerbigov.us/view?r=eyJrIjoiN2M2YjVjNjEtM2ViNi00NmVjLTk2NTctOTNlODM0NDY0ZjAwIiwidCI6ImFkMWM0MmQ0LThjZWUtNGUwNS04YTNiLTA3ZWQ2OTY4ZmI2YyJ9"
         };
 
         var passwords = {
-            "dashboard1": "securepass123"
+            "dashboard1": "securepass123",
+            "dashboard2": "securepass123"
         };
 
         function checkPassword() {
