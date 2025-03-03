@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DCEMS KPI Dashboards</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+            background-color: #17202A;
+            color: white;
+        }
+
+        /* Header Container to hold Logo and Title */
+        .header-container {
+            display: flex;
+            flex-direction: column; /* Stack logo and title vertically */
+            align-items: center;   /* Center items horizontally */
+            justify-content: center; /*Center items vertically*/
+            padding: 10px;
+        }
+
+        .logo {
+            width: 80px; /* Adjust size as needed - smaller for mobile */
+            height: auto;
+            margin-bottom: 10px; /* Add spacing between logo and title */
+        }
+
+        h1 {
+            color: #ffffff;
+            margin: 0;
+            font-size: 1.5em; /* Adjust font size for responsiveness */
+        }
+
+        .dropdown {
+            margin-bottom: 20px;
+        }
+        
+        select, input, button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin: 5px;
+        }
+
+        select:hover, button:hover {
+            background-color: #444;
+        }
+
+        iframe {
+            width: 95%; /* Default width */
+            max-width: 1200px; /* Or any desired maximum width */
+            height: 700px;
+            border: none;
+            display: none;
+            margin: 20px auto; /* Center horizontally */
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+        }
+        /* Media query for smaller screens */
+        @media (max-width: 600px) {
+            .logo {
+                width: 60px;
+            }
+            h1 {
+                font-size: 1.2em;
+            }
+            iframe {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <img src="DCEMS-Logo.jpg" alt="Logo" class="logo">
+        <h1>Dorchester County EMS KPI Dashboards</h1>
+    </div>
+    
+    <div class="dropdown">
+        <select id="dashboardSelect" onchange="checkPassword()">
+            <option value="" selected disabled>Select a Dashboard</option>
+            <option value="dashboard1">2024 QA Audit (Protected)</option>
+            <option value="dashboard2">Mission Lifeline - Cardiac KPIs</option>
+            <option value="dashboard3">Mission Lifeline - Neuro KPIs</option>
+        </select>
+    </div>
+    
+    <div id="passwordContainer" style="display:none;">
+        <input type="password" id="dashboardPassword" placeholder="Enter Password">
+        <button onclick="validatePassword()">Submit</button>
+    </div>
+
+    <!-- Added iframe to display dashboards -->
+    <iframe id="dashboardFrame" style="display:none; width:100%; height:600px;"></iframe>
+
+    <script>
+        var urls = {
+            "dashboard1": "https://app.powerbigov.us/view?r=eyJrIjoiMzc5MzI4YWUtMmRhYS00MzhjLTk1ZjYtY2FkZTkyMjc3MWMxIiwidCI6ImFkMWM0MmQ0LThjZWUtNGUwNS04YTNiLTA3ZWQ2OTY4ZmI2YyJ9",
+
+            "dashboard2": "https://app.powerbigov.us/view?r=eyJrIjoiZjQ4MDZjOWMtMTc5MS00MjJjLWI3MzYtYjFmNGE3NGMyZWRmIiwidCI6ImFkMWM0MmQ0LThjZWUtNGUwNS04YTNiLTA3ZWQ2OTY4ZmI2YyJ9",
+
+            "dashboard3": "https://app.powerbigov.us/view?r=eyJrIjoiN2M2YjVjNjEtM2ViNi00NmVjLTk2NTctOTNlODM0NDY0ZjAwIiwidCI6ImFkMWM0MmQ0LThjZWUtNGUwNS04YTNiLTA3ZWQ2OTY4ZmI2YyJ9"
+        };
+
+        var passwords = {
+            "dashboard1": "securepass123"
+        };
+
+        function checkPassword() {
+            var selectedValue = document.getElementById("dashboardSelect").value;
+            var frame = document.getElementById("dashboardFrame");
+            var passwordContainer = document.getElementById("passwordContainer");
+
+            if (!selectedValue || !urls[selectedValue]) {
+                return;
+            }
+
+            if (passwords[selectedValue]) {
+                // If the selected dashboard is protected, show password input
+                passwordContainer.style.display = "block";
+                frame.style.display = "none";
+            } else {
+                // If not protected, load the dashboard directly
+                frame.src = urls[selectedValue];
+                frame.style.display = "block";
+                passwordContainer.style.display = "none";
+            }
+        }
+
+        function validatePassword() {
+            var selectedValue = document.getElementById("dashboardSelect").value;
+            var enteredPassword = document.getElementById("dashboardPassword").value;
+            var frame = document.getElementById("dashboardFrame");
+
+            if (!enteredPassword) {
+                alert("Please enter a password.");
+                return;
+            }
+
+            if (enteredPassword === passwords[selectedValue]) {
+                frame.src = urls[selectedValue];
+                frame.style.display = "block";
+                document.getElementById("passwordContainer").style.display = "none";
+            } else {
+                alert("Incorrect password!");
+            }
+        }
+    </script>
+</body>
+</html>
