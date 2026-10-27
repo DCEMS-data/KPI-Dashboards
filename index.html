@@ -86,8 +86,10 @@
         <select id="dashboardSelect" onchange="checkPassword()">
             <option value="" selected disabled>Select a Dashboard</option>
             <option value="dashboard1">Operational KPIs</option>
-            <option value="dashboard2">(Archived) Response Data Dashboard</option>
-            <option value="dashboard3">(Archived) Community Paramedic FY26</option>
+            <option value="dashboard2">Sepsis 2026-Present</option>
+            <option value="dashboard3">Sepsis 2024-2026</option>
+            <option value="dashboard4">(Archived) Response Data Dashboard</option>
+            <option value="dashboard5">(Archived) Community Paramedic FY26</option>
         </select>
     </div>
     
@@ -103,10 +105,14 @@
         var urls = {
 
             "dashboard1": "https://app.powerbigov.us/view?r=eyJrIjoiMjU0NTM3MDctOTVmYS00OGNlLWFjNDQtODNlMTRiODExMjc4IiwidCI6ImFkMWM0MmQ0LThjZWUtNGUwNS04YTNiLTA3ZWQ2OTY4ZmI2YyJ9&pageName=f9040f800ae1d037a096",
-            
-            "dashboard2": "https://app.powerbigov.us/view?r=eyJrIjoiOGNhMjQxNTMtNjEwOC00ZGYzLWIzNTYtZDk2OTNiMWZhM2FiIiwidCI6ImFkMWM0MmQ0LThjZWUtNGUwNS04YTNiLTA3ZWQ2OTY4ZmI2YyJ9&pageName=05a9620a69e919d9d005",
 
-            "dashboard3": "https://app.powerbigov.us/view?r=eyJrIjoiMTExMTc3OWQtNDg1YS00ZTY2LTk3NTQtYmIyNDk2YjJjMDhjIiwidCI6ImFkMWM0MmQ0LThjZWUtNGUwNS04YTNiLTA3ZWQ2OTY4ZmI2YyJ9&pageName=d0ed363d8672dd2a3617"
+            "dashboard2": "https://app.powerbigov.us/view?r=eyJrIjoiMDE4YTM4ODAtODI1NC00ZDEzLTgwMGUtNTYzZDI2NDQyNDQzIiwidCI6ImFkMWM0MmQ0LThjZWUtNGUwNS04YTNiLTA3ZWQ2OTY4ZmI2YyJ9&pageName=3b792b6e1546ec90f625",
+
+            "dashboard3": "https://app.powerbigov.us/view?r=eyJrIjoiMWY5NGM5NjEtNzU3ZC00YTYzLTg4NDMtZTU2MmIxYWI0NGQ0IiwidCI6ImFkMWM0MmQ0LThjZWUtNGUwNS04YTNiLTA3ZWQ2OTY4ZmI2YyJ9&pageName=5c28109d906b86b19cde",
+            
+            "dashboard4": "https://app.powerbigov.us/view?r=eyJrIjoiOGNhMjQxNTMtNjEwOC00ZGYzLWIzNTYtZDk2OTNiMWZhM2FiIiwidCI6ImFkMWM0MmQ0LThjZWUtNGUwNS04YTNiLTA3ZWQ2OTY4ZmI2YyJ9&pageName=05a9620a69e919d9d005",
+
+            "dashboard5": "https://app.powerbigov.us/view?r=eyJrIjoiMTExMTc3OWQtNDg1YS00ZTY2LTk3NTQtYmIyNDk2YjJjMDhjIiwidCI6ImFkMWM0MmQ0LThjZWUtNGUwNS04YTNiLTA3ZWQ2OTY4ZmI2YyJ9&pageName=d0ed363d8672dd2a3617"
         };
 
         var passwords = {
